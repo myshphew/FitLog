@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Oswald, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/NavBar";
+import { FitLogProvider } from "@/app/_context/FitlogContext";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -23,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${oswald.variable} ${jakarta.variable}`}>
       <body className="min-h-full flex flex-col">
         <Navbar />
-        {children}
+        <FitLogProvider>{children}</FitLogProvider>
       </body>
     </html>
   );
