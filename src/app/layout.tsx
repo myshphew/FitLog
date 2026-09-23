@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Oswald, Plus_Jakarta_Sans} from "next/font/google";
+import { Oswald, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import Navbar from "./_components/NavBar";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -19,11 +20,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${oswald.variable} ${jakarta.variable}`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${oswald.variable} ${jakarta.variable}`}>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
