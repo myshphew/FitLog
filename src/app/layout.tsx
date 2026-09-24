@@ -22,10 +22,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${oswald.variable} ${jakarta.variable}`}>
-      <body className="min-h-full flex flex-col">
-        <Navbar />
-        <FitLogProvider>{children}</FitLogProvider>
-      </body>
+      <FitLogProvider>
+        <body className="min-h-full flex flex-col">
+          <Navbar />
+          {children}
+        </body>
+      </FitLogProvider>
     </html>
   );
 }

@@ -1,14 +1,18 @@
 import Image from "next/image";
 import type { Workout } from "@/app/_types/types";
 import { Clock, Flame, Star } from "lucide-react";
+import { useRouter } from "next/navigation";
+
+
 
 interface WorkoutCardProps {
   workout: Workout;
 }
 
 export default function WorkoutCard({ workout }: WorkoutCardProps) {
+  const router = useRouter();
   return (
-    <article className="group overflow-hidden rounded-2xl border border-[#252830] bg-[#15171c] transition duration-200 hover:border-[#3a3e47]">
+    <article onClick={() => router.push(`/${workout.id}`)} className="group overflow-hidden rounded-2xl border border-[#252830] bg-[#15171c] transition duration-200 hover:border-[#3a3e47]">
       <div className="relative aspect-[1.9/1] overflow-hidden bg-[#202329]">
         <Image
           src={workout.image}
