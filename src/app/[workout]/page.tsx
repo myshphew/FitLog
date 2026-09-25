@@ -7,8 +7,8 @@ import { useFitLog } from "@/app/_context/FitlogContext";
 import Navbar from "@/app/_components/NavBar";
 import WorkoutDetailsTable from "../_components/WorkoutDetailsTable";
 import WorkoutDetailsInstructions from "../_components/WorkoutDetailsInstructions";
-import PlanButton from "../_components/PlanButton";
-import SaveButton from "../_components/SaveButton";
+import PlanButton from "../_components/(components.buttons)/PlanButton";
+import SaveButton from "../_components/(components.buttons)/SaveButton";
 
 export default function Workout() {
   const params = useParams();

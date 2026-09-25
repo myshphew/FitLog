@@ -1,5 +1,5 @@
-import { useFitLog } from "../_context/FitlogContext";
-import type { Workout } from "../_types/types";
+import { useFitLog } from "../../_context/FitlogContext";
+import type { Workout } from "../../_types/types";
 import { Bookmark, BookmarkCheck } from "lucide-react";
 
 interface SaveButtonProps {

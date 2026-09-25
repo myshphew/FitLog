@@ -1,5 +1,5 @@
-import { useFitLog } from "../_context/FitlogContext";
-import type { Workout } from "../_types/types";
+import { useFitLog } from "../../_context/FitlogContext";
+import type { Workout } from "../../_types/types";
 import { CalendarPlus, Check } from "lucide-react";
 
 interface PlanButtonProps {
@@ -21,10 +21,10 @@ export default function PlanButton({ workout }: PlanButtonProps) {
   return (
     <button
       onClick={handlePlanClick}
-      className={`flex items-center gap-2 rounded-xl px-6 py-3.5 font-jakarta text-xs font-bold transition ${
+      className={`flex items-center gap-2 rounded-full bg-[#c8ff00] px-5 py-2.5 text-xs font-bold text-black  ${
         workoutInPlan
-          ? "bg-[#9fc900] text-black"
-          : "bg-[#c8ff00] text-black hover:bg-[#d4ff33]"
+          ? "bg-[#c8ff00]"
+          : "bg-[#c8ff00]transition hover:bg-[#d4ff33]]"
       }`}
     >
       {workoutInPlan ? (
@@ -41,3 +41,4 @@ export default function PlanButton({ workout }: PlanButtonProps) {
     </button>
   );
 }
+//rounded-full bg-[#c8ff00] px-5 py-2.5 text-xs font-bold text-black transition hover:bg-[#d4ff33]

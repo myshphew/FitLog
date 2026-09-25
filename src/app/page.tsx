@@ -1,6 +1,6 @@
 "use client";
 
-import WorkoutCard from "./_components/WorkoutCard";
+import WorkoutCard from "./_components/(components.cards)/WorkoutCard";
 import { useFitLog } from "@/app/_context/FitlogContext";
 
 export default function Home() {
