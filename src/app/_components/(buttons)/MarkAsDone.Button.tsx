@@ -22,7 +22,7 @@ export default function MarkAsDoneButton({ workout }: MarkAsDoneButtonProps) {
         draggable: true,
         theme: "dark",
         transition: Bounce,
-        });
+      });
     } else {
       removeFromCompleted(workout.id);
       toast.success(`Unmarked as done`, {
@@ -34,14 +34,14 @@ export default function MarkAsDoneButton({ workout }: MarkAsDoneButtonProps) {
         draggable: true,
         theme: "dark",
         transition: Bounce,
-        });
+      });
     }
   };
 
   return (
     <button
       onClick={handleMarkAsDoneClick}
-      className={`w-full sm:min-w-44 text-nowrap flex justify-center items-center gap-1.5 rounded-md px-6 py-3 font-body text-sm leading-4.5 font-semibold ${
+      className={`w-full lg:min-w-32 lg:w-full text-nowrap flex justify-center items-center gap-1.5 rounded-md px-6 py-3 font-body text-sm leading-4.5 font-semibold ${
         isCompleted(workout.id)
           ? "border border-[#C2F80075] text-[#C2F80075]"
           : "bg-[#C2F800] transition hover:bg-[#d5ff3c] text-black"
@@ -49,7 +49,7 @@ export default function MarkAsDoneButton({ workout }: MarkAsDoneButtonProps) {
     >
       {!isCompleted(workout.id) ? (
         <>
-          <Check size={16} strokeWidth={1.5} className="hidden sm:block" />
+          <Check size={16} strokeWidth={1.5} className="sm:hidden lg:block" />
           Mark as Done
         </>
       ) : (

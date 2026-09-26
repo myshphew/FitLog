@@ -24,7 +24,7 @@ export default function PlanCard({ workout }: TodayWorkoutCardProps) {
       <Image
         src={workout.image}
         alt={workout.name}
-        className="w-full sm:max-w-46 aspect-[1.9/1] rounded-lg object-cover"
+        className="w-full sm:max-w-34 lg:max-w-54 aspect-[1.9/1] rounded-lg object-cover"
         height={200}
         width={200}
       />
@@ -52,12 +52,12 @@ export default function PlanCard({ workout }: TodayWorkoutCardProps) {
           </div>
         </div>
       </div>
-      <div className="flex w-full items-center gap-3">
-        <ViewDetailsButton workout={workout} />
-        <MarkAsDoneButton workout={workout} />
+      <div className="flex flex-row-reverse w-full items-center gap-3">
         <div className="hidden sm:block">
           <RemovePlanButton workout={workout} />
         </div>
+        <MarkAsDoneButton workout={workout} />
+        <ViewDetailsButton workout={workout} />
       </div>
     </div>
   );
