@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "./_components/NavBar";
 import { FitLogProvider } from "@/app/_context/FitlogContext";
 import Footer from "./_components/Footer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -27,10 +29,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${oswald.variable} ${jakarta.variable} scroll-smooth scroll-mt-16`}
     >
       <FitLogProvider>
-        <body className="min-h-full flex flex-col">
+        <body className="min-h-screen flex flex-col" cz-shortcut-listen="true">
           <Navbar />
           {children}
           <Footer />
+          <ToastContainer />
         </body>
       </FitLogProvider>
     </html>

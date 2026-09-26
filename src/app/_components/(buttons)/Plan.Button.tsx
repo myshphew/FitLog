@@ -1,3 +1,5 @@
+"use client";
+import { Bounce, toast } from "react-toastify";
 import { useFitLog } from "../../_context/FitlogContext";
 import type { Workout } from "../../_types/types";
 import { CalendarPlus, Check } from "lucide-react";
@@ -13,15 +15,35 @@ export default function PlanButton({ workout }: PlanButtonProps) {
   const handlePlanClick = () => {
     if (workoutInPlan) {
       removeFromPlan(workout.id);
+      toast.success(`Removed from today's plan`, {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+        transition: Bounce,
+      });
     } else {
       addToPlan(workout);
+      toast.success(`Added to today's plan`, {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+        transition: Bounce,
+      });
     }
   };
 
   return (
     <button
       onClick={handlePlanClick}
-      className={`w-full flex justify-center items-center gap-1.5 rounded-md px-6 py-3 font-body text-sm font-semibold text-black ${
+      className={`w-full flex justify-center items-center gap-1.5 rounded-md px-6 py-3 font-body text-sm leading-4.5 font-semibold text-black ${
         workoutInPlan
           ? "bg-[#C2F80075]"
           : "bg-[#C2F800] transition hover:bg-[#d5ff3c]"

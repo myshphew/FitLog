@@ -20,7 +20,7 @@ export default function Hero() {
           today&apos;s plan, and watch the week&apos;s work add up.
         </p>
         <Link href="#library">
-          <button className="mt-4 sm:mt-7 flex justify-center items-center gap-1.5 rounded-md px-6 py-3 font-body text-sm font-semibold text-black bg-[#C2F800] tracking-wider uppercase transition hover:bg-[#d5ff3c]">
+          <button className="mt-4 sm:mt-7 flex justify-center items-center gap-1.5 rounded-md px-6 py-3 font-body text-sm leading-5 font-semibold text-black bg-[#C2F800] tracking-wider uppercase transition hover:bg-[#d5ff3c]">
             <Compass size={16} strokeWidth={2} />
             Browse Workouts
           </button>

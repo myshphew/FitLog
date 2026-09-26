@@ -54,50 +54,44 @@ export default function MyPlan() {
   }, [currentWorkouts]);
 
   return (
-    <main className="mt-16 min-h-screen text-white">
-      <div className="mx-auto w-full max-w-300 px-4 py-8 sm:px-6 lg:px-8">
+    <main className="flex-1 text-white">
+      <div className="mx-auto w-full max-w-300 px-4 py-20 sm:py-24 sm:px-6">
         <section className="mb-6">
-          <h1 className="font-oswald text-2xl font-bold tracking-wide sm:text-3xl">
+          <h1 className="font-display text-xl sm:text-3xl font-bold uppercase leading-9 text-white">
             MY PLAN
           </h1>
-
-          <p className="mt-1 text-xs text-[#8e929d] sm:text-sm">
+          <p className="mt-0 sm:mt-1 font-body text-xs sm:text-sm text-[#9CA3AF]">
             Cap of five lifts for today. Finish them, then load more.
           </p>
         </section>
 
-        <section className="mb-6 grid grid-cols-3 overflow-hidden rounded-xl border border-[#252830] bg-[#15171c]">
-          <div className="px-4 py-5 sm:px-6 sm:py-6">
-            <p className="text-[10px] text-[#8e929d] sm:text-xs">Exercises</p>
-
-            <p className="mt-1 font-oswald text-2xl font-bold text-[#c8ff00] sm:text-3xl">
+        <section className="mb-6 grid grid-cols-3 overflow-hidden rounded-2xl border border-[#222630] bg-[#15171D]">
+          <div className="px-4 py-4 sm:px-6 sm:py-6">
+            <p className="text-[10px] text-[#9CA3AF] sm:text-xs">Exercises</p>
+            <p className="font-display text-2xl font-bold text-[#C2F800] sm:text-4xl">
               {statistics.exercises}
             </p>
           </div>
-
-          <div className="border-l border-[#252830] px-4 py-5 sm:px-6 sm:py-6">
-            <p className="text-[10px] text-[#8e929d] sm:text-xs">Minutes</p>
-
-            <p className="mt-1 font-oswald text-2xl font-bold sm:text-3xl">
+          <div className="border-l border-[#222630] px-4 py-4 sm:px-6 sm:py-6">
+            <p className="text-[10px] text-[#9CA3AF] sm:text-xs">Minutes</p>
+            <p className="font-display text-2xl font-bold text-[#C2F800] sm:text-4xl">
               {statistics.minutes}
             </p>
           </div>
-
-          <div className="border-l border-[#252830] px-4 py-5 sm:px-6 sm:py-6">
-            <p className="text-[10px] text-[#8e929d] sm:text-xs">Calories</p>
-
-            <p className="mt-1 font-oswald text-2xl font-bold sm:text-3xl">
+          <div className="border-l border-[#222630] px-4 py-4 sm:px-6 sm:py-6">
+            <p className="text-[10px] text-[#9CA3AF] sm:text-xs">Calories</p>
+            <p className="font-display text-2xl font-bold text-[#C2F800] sm:text-4xl">
               {statistics.calories}
             </p>
           </div>
         </section>
 
-        <section className="mb-4 flex items-center justify-between gap-4">
-          <div className="flex rounded-lg border border-[#252830] bg-[#15171c] p-1">
+        <section className="mb-4 flex items-center justify-between gap-2">
+          <div className="flex w-full sm:w-60 text-nowrap rounded-lg border border-[#252830] bg-[#15171c] p-1">
             <button
               type="button"
               onClick={() => setActiveTab("today")}
-              className={`rounded-md px-3 py-2 text-[10px] font-semibold transition sm:px-4 sm:text-xs ${
+              className={`w-full rounded-md px-3 py-2 text-[10px] font-semibold transition sm:px-4 sm:text-xs ${
                 activeTab === "today"
                   ? "bg-[#222630] text-white"
                   : "text-[#747984] hover:text-white"
@@ -105,11 +99,10 @@ export default function MyPlan() {
             >
               Today&#39;s Plan
             </button>
-
             <button
               type="button"
               onClick={() => setActiveTab("saved")}
-              className={`rounded-md px-3 py-2 text-[10px] font-semibold transition sm:px-4 sm:text-xs ${
+              className={`w-full rounded-md px-3 py-2 text-[10px] font-semibold transition sm:px-4 sm:text-xs ${
                 activeTab === "saved"
                   ? "bg-[#222630] text-white"
                   : "text-[#747984] hover:text-white"
@@ -118,23 +111,20 @@ export default function MyPlan() {
               Saved
             </button>
           </div>
-
           <div className="flex items-center gap-2">
-            <span className="hidden text-[10px] text-[#747984] sm:block">
+            <span className="hidden text-[11px] text-[#9CA3AF] sm:block">
               Sort By
             </span>
-
             <div className="relative">
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="appearance-none rounded-lg border border-[#252830] bg-[#15171c] py-2 pl-3 pr-8 text-[10px] text-white outline-none transition focus:border-[#c8ff00]"
+                className="appearance-none rounded-lg border border-[#252830] bg-[#15171c] py-3 pl-4 pr-9 text-[10px] font-semibold text-white outline-none transition focus:border-[#c8ff00] sm:text-xs"
               >
                 <option value="duration">Duration</option>
                 <option value="calories">Calories</option>
                 <option value="rating">Rating</option>
               </select>
-
               <ChevronDown
                 size={13}
                 className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[#747984]"
