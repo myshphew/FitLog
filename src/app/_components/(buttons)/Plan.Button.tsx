@@ -9,7 +9,7 @@ interface PlanButtonProps {
 }
 
 export default function PlanButton({ workout }: PlanButtonProps) {
-  const { addToPlan, removeFromPlan, isInPlan } = useFitLog();
+  const { addToPlan, removeFromPlan, isInPlan, planWorkouts } = useFitLog();
   const workoutInPlan = isInPlan(workout.id);
 
   const handlePlanClick = () => {
@@ -26,17 +26,30 @@ export default function PlanButton({ workout }: PlanButtonProps) {
         transition: Bounce,
       });
     } else {
-      addToPlan(workout);
-      toast.success(`Added to today's plan`, {
-        position: "top-right",
-        autoClose: 1500,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: "dark",
-        transition: Bounce,
-      });
+      if (planWorkouts.length < 5) {
+        addToPlan(workout);
+        toast.success(`Added to today's plan`, {
+          position: "top-right",
+          autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark",
+          transition: Bounce,
+        });
+      } else {
+        toast.error(`Cap of five lifts for today reached`, {
+          position: "top-right",
+          autoClose: 1500,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark",
+          transition: Bounce,
+        });
+      }
     }
   };
 
