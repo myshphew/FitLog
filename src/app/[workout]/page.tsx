@@ -7,8 +7,8 @@ import { useFitLog } from "@/app/_context/FitlogContext";
 import Navbar from "@/app/_components/NavBar";
 import WorkoutDetailsTable from "../_components/WorkoutDetailsTable";
 import WorkoutDetailsInstructions from "../_components/WorkoutDetailsInstructions";
-import PlanButton from "../_components/(components.buttons)/PlanButton";
-import SaveButton from "../_components/(components.buttons)/SaveButton";
+import PlanButton from "../_components/(buttons)/Plan.Button";
+import SaveButton from "../_components/(buttons)/Save.Button";
 
 export default function Workout() {
   const params = useParams();
@@ -21,9 +21,7 @@ export default function Workout() {
       <main className="min-h-screen bg-[#0d0f12] text-white">
         <Navbar />
         <div className="flex min-h-[70vh] items-center justify-center">
-          <p className="font-jakarta text-sm text-[#858a94]">
-            Loading workout...
-          </p>
+          <p className="font-body text-sm text-[#858a94]">Loading workout...</p>
         </div>
       </main>
     );
@@ -34,7 +32,7 @@ export default function Workout() {
       <main className="min-h-screen bg-[#0d0f12] text-white">
         <Navbar />
         <div className="flex min-h-[70vh] items-center justify-center">
-          <p className="font-jakarta text-sm text-red-400">{error}</p>
+          <p className="font-body text-sm text-red-400">{error}</p>
         </div>
       </main>
     );
@@ -45,12 +43,12 @@ export default function Workout() {
       <main className="min-h-screen bg-[#0d0f12] text-white">
         <Navbar />
         <div className="flex min-h-[70vh] flex-col items-center justify-center gap-4">
-          <h1 className="font-oswald text-4xl font-bold uppercase">
+          <h1 className="font-display text-4xl font-bold uppercase">
             Workout not found
           </h1>
           <Link
             href="/"
-            className="font-jakarta text-sm text-[#c8ff00] hover:underline"
+            className="font-body text-sm text-[#c8ff00] hover:underline"
           >
             Back to workouts
           </Link>
@@ -60,18 +58,17 @@ export default function Workout() {
   }
 
   return (
-    <main className="mt-16 bg-[#0d0f12] text-white">
+    <main className="bg-[#0d0f12] text-white">
       <Navbar />
 
-      <section className="mx-auto px-6 py-12">
+      <section className="mx-auto pt-22 p-6">
         <div className="grid gap-14 lg:grid-cols-[1fr_1fr]">
-          <div>
+          <div className="relative aspect-square overflow-hidden">
             <Image
               src={workout.image}
               alt={workout.name}
-              className="aspect-4/5 w-full rounded-xl object-cover"
-              height={650}
-              width={650}
+              className="rounded-2xl object-cover"
+              fill
             />
           </div>
 
@@ -80,16 +77,16 @@ export default function Workout() {
               <h1 className="font-display text-2xl font-bold uppercase leading-[1.05] tracking-tight md:text-4xl">
                 {workout.name}
               </h1>
-              <p className="mt-3 font-body text-sm leading-6 text-[#969ba6]">
+              <p className="mt-2 font-body text-sm leading-6 text-[#969ba6]">
                 {workout.description}
               </p>
             </div>
 
-            <div className="mt-5 flex flex-wrap gap-2">
+            <div className="mt-4 flex flex-wrap gap-2">
               {workout.muscleGroups.map((muscle) => (
                 <span
                   key={muscle}
-                  className="rounded-full bg-[#c8ff00] px-4 py-1.5 font-body text-xs font-bold text-black"
+                  className="rounded-full bg-[#C2F800] px-3 py-1 font-body text-xs font-bold text-black"
                 >
                   {muscle}
                 </span>
@@ -99,7 +96,7 @@ export default function Workout() {
             <WorkoutDetailsTable workout={workout} />
             <WorkoutDetailsInstructions instructions={workout.instructions} />
 
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <PlanButton workout={workout} />
               <SaveButton workout={workout} />
             </div>

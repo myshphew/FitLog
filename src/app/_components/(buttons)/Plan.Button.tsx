@@ -21,24 +21,23 @@ export default function PlanButton({ workout }: PlanButtonProps) {
   return (
     <button
       onClick={handlePlanClick}
-      className={`flex items-center gap-2 rounded-full bg-[#c8ff00] px-5 py-2.5 text-xs font-bold text-black  ${
+      className={`w-full flex justify-center items-center gap-1.5 rounded-md px-6 py-3 font-body text-sm font-semibold text-black ${
         workoutInPlan
-          ? "bg-[#c8ff00]"
-          : "bg-[#c8ff00]transition hover:bg-[#d4ff33]]"
+          ? "bg-[#C2F80075]"
+          : "bg-[#C2F800] transition hover:bg-[#d5ff3c]"
       }`}
     >
       {workoutInPlan ? (
         <>
-          <Check size={16} strokeWidth={1.5} />
+          <Check size={16} strokeWidth={2} />
           Added to today&#39;s plan
         </>
       ) : (
         <>
-          <CalendarPlus size={16} strokeWidth={1.5} />
+          <CalendarPlus size={16} strokeWidth={2} />
           Add to today&#39;s plan
         </>
       )}
     </button>
   );
 }
-//rounded-full bg-[#c8ff00] px-5 py-2.5 text-xs font-bold text-black transition hover:bg-[#d4ff33]

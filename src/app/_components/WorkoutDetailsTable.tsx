@@ -8,7 +8,7 @@ export default function WorkoutDetailsTable({
   workout,
 }: WorkoutDetailsTableProps) {
   return (
-    <div className="mt-6 overflow-hidden rounded-2xl border border-[#292e37] bg-[#15181e]">
+    <div className="mt-6 overflow-hidden rounded-2xl border border-[#222630] bg-[#15171D]">
       <InfoRow label="Equipment" value={workout.equipment} />
       <InfoRow label="Difficulty" value={workout.difficulty} />
       <InfoRow label="Sets" value={String(workout.sets)} />
@@ -31,14 +31,14 @@ function InfoRow({
 }) {
   return (
     <div
-      className={`flex items-center justify-between px-6 py-4 ${
-        !last ? "border-b border-[#292e37]" : ""
+      className={`flex items-center justify-between px-4 py-3 ${
+        !last ? "border-b border-[#222630]" : ""
       }`}
     >
-      <span className="font-body text-xs font-bold uppercase tracking-wide text-[#9298a3]">
+      <span className="font-body text-xs font-bold uppercase tracking-wide text-[#9CA3AF]">
         {label}
       </span>
-      <span className="font-body text-sm font-medium text-[#dfe1e5]">
+      <span className="font-body text-sm font-medium text-[#9CA3AF]">
         {value}
       </span>
     </div>

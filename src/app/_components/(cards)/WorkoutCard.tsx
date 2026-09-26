@@ -3,8 +3,6 @@ import type { Workout } from "@/app/_types/types";
 import { Clock, Flame, Star } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-
-
 interface WorkoutCardProps {
   workout: Workout;
 }
@@ -12,8 +10,11 @@ interface WorkoutCardProps {
 export default function WorkoutCard({ workout }: WorkoutCardProps) {
   const router = useRouter();
   return (
-    <article onClick={() => router.push(`/${workout.id}`)} className="group overflow-hidden rounded-2xl border border-[#252830] bg-[#15171c] transition duration-200 hover:border-[#3a3e47]">
-      <div className="relative aspect-[1.9/1] overflow-hidden bg-[#202329]">
+    <article
+      onClick={() => router.push(`/${workout.id}`)}
+      className="overflow-hidden rounded-2xl border border-[#222630] bg-[#15171D] transition duration-200 hover:border-[#3a3e47]"
+    >
+      <div className="relative aspect-[1.9/1] overflow-hidden">
         <Image
           src={workout.image}
           alt={workout.name}
@@ -27,23 +28,23 @@ export default function WorkoutCard({ workout }: WorkoutCardProps) {
           {workout.muscleGroups.map((muscle) => (
             <span
               key={muscle}
-              className="rounded-full bg-[#c8ff00] px-3 py-1 font-body text-xs font-bold uppercase leading-none text-black"
+              className="rounded-full bg-[#C2F800] px-2.5 py-0.5 font-body text-[10px] font-bold uppercase leading-none text-black"
             >
               {muscle}
             </span>
           ))}
         </div>
 
-        <h2 className="mt-4 font-display text-lg font-bold uppercase tracking-wide text-[#fafafa]">
+        <h2 className="mt-4 font-display text-lg font-bold uppercase tracking-wide text-white">
           {workout.name}
         </h2>
-        <p className="mt-1 font-body text-xs text-[#858a96]">
+        <p className="mt-1 font-body text-xs text-[#9CA3AF]">
           {workout.equipment}
         </p>
 
         <div className="my-3 h-px bg-[#282b32]" />
 
-        <div className="flex items-center gap-4 font-body text-xs text-[#858a96]">
+        <div className="flex items-center gap-4 font-body text-xs text-[#9CA3AF]">
           <span className="flex items-center gap-1.5">
             <Clock size={16} strokeWidth={1.5} />
             {workout.duration} min

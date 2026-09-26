@@ -21,20 +21,20 @@ export default function SaveButton({ workout }: SaveButtonProps) {
   return (
     <button
       onClick={handleSaveClick}
-      className={`flex items-center gap-2 rounded-xl border px-6 py-3.5 font-jakarta text-xs font-medium transition ${
+      className={`w-full flex justify-center items-center gap-1.5 rounded-md px-6 py-3 font-body text-sm font-semibold border transition ${
         workoutIsSaved
-          ? "border-[#c8ff00] text-[#c8ff00]"
+          ? "border-[#C2F800] text-[#C2F800]"
           : "border-[#353b46] text-[#d0d3d8] hover:border-[#5a616d] hover:text-white"
       }`}
     >
       {workoutIsSaved ? (
         <>
-          <BookmarkCheck size={16} strokeWidth={1.5} />
+          <BookmarkCheck size={16} strokeWidth={2} />
           Saved
         </>
       ) : (
         <>
-          <Bookmark size={16} strokeWidth={1.5} />
+          <Bookmark size={16} strokeWidth={2} />
           Save for later
         </>
       )}

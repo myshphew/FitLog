@@ -1,8 +1,8 @@
 import Image from "next/image";
 import type { Workout } from "../../_types/types";
 import { Clock3, Flame, Star, X } from "lucide-react";
-import ViewDetailsButton from "../(components.buttons)/ViewDetailsButton";
-import MarkAsDoneButton from "../(components.buttons)/MarkAsDoneButton";
+import ViewDetailsButton from "../(buttons)/ViewDetails.Button";
+import MarkAsDoneButton from "../(buttons)/MarkAsDone.Button";
 
 interface TodayWorkoutCardProps {
   workout: Workout;
@@ -44,7 +44,7 @@ export default function PlanCard({ workout }: TodayWorkoutCardProps) {
       </div>
       <div className="flex items-center gap-3">
         <ViewDetailsButton />
-        <MarkAsDoneButton workout={workout}/>
+        <MarkAsDoneButton workout={workout} />
         <button className="h-6 w-6 flex justify-center items-center text-slate-500 transition hover:text-white">
           <X size={18} />
         </button>

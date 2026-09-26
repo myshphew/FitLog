@@ -2,9 +2,9 @@
 
 import { useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import PlanCard from "../_components/(components.cards)/PlanCard";
-import SaveCard from "../_components/(components.cards)/SaveCard";
-import EmptyCard from "../_components/(components.cards)/EmptyCard";
+import PlanCard from "../_components/(cards)/PlanCard";
+import SaveCard from "../_components/(cards)/SaveCard";
+import EmptyCard from "../_components/(cards)/EmptyCard";
 import { useFitLog } from "../_context/FitlogContext";
 
 type Tab = "today" | "saved";
@@ -55,7 +55,7 @@ export default function MyPlan() {
 
   return (
     <main className="mt-16 min-h-screen text-white">
-      <div className="mx-auto w-full max-w-[1200px] px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-300 px-4 py-8 sm:px-6 lg:px-8">
         <section className="mb-6">
           <h1 className="font-oswald text-2xl font-bold tracking-wide sm:text-3xl">
             MY PLAN

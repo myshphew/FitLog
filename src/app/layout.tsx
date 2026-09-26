@@ -3,6 +3,7 @@ import { Oswald, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/NavBar";
 import { FitLogProvider } from "@/app/_context/FitlogContext";
+import Footer from "./_components/Footer";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -21,11 +22,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${oswald.variable} ${jakarta.variable}`}>
+    <html
+      lang="en"
+      className={`${oswald.variable} ${jakarta.variable} scroll-smooth scroll-mt-16`}
+    >
       <FitLogProvider>
         <body className="min-h-full flex flex-col">
           <Navbar />
           {children}
+          <Footer />
         </body>
       </FitLogProvider>
     </html>

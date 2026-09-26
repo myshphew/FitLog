@@ -29,8 +29,3 @@ export default function MarkAsDoneButton({ workout }: MarkAsDoneButtonProps) {
     </>
   );
 }
-
-// completedWorkouts: Workout[];
-// addToCompleted: (workout: Workout) => void;
-// removeFromCompleted: (id: number) => void;
-// isCompleted: (id: number) => boolean;

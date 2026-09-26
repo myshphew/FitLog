@@ -37,17 +37,10 @@ interface FitLogContextType {
 }
 
 // Context
-const FitLogContext = createContext<FitLogContextType | undefined>(
-  undefined,
-);
+const FitLogContext = createContext<FitLogContextType | undefined>(undefined);
 
 // Provider
-export function FitLogProvider({
-  children,
-}: {
-  children: ReactNode;
-}) {
-
+export function FitLogProvider({ children }: { children: ReactNode }) {
   // API DATA
   const [workouts, setWorkouts] = useState<Workout[]>([]);
   const [loading, setLoading] = useState(true);
@@ -72,15 +65,13 @@ export function FitLogProvider({
   });
 
   // COMPLETED WORKOUTS
-  const [completedWorkouts, setCompletedWorkouts] = useState<Workout[]>(
-    () => {
-      if (typeof window === "undefined") {
-        return [];
-      }
-      const completed = localStorage.getItem("fitlog-completed");
-      return completed ? JSON.parse(completed) : [];
-    },
-  );
+  const [completedWorkouts, setCompletedWorkouts] = useState<Workout[]>(() => {
+    if (typeof window === "undefined") {
+      return [];
+    }
+    const completed = localStorage.getItem("fitlog-completed");
+    return completed ? JSON.parse(completed) : [];
+  });
 
   // FETCH WORKOUTS
   useEffect(() => {
@@ -88,9 +79,7 @@ export function FitLogProvider({
       try {
         setLoading(true);
         setError(null);
-        const response = await fetch(
-          "https://api.abcz.workers.dev/api/fitlog",
-        );
+        const response = await fetch("https://api.abcz.workers.dev/api/fitlog");
         if (!response.ok) {
           throw new Error("Failed to fetch workouts");
         }
@@ -98,9 +87,7 @@ export function FitLogProvider({
         setWorkouts(data);
       } catch (error) {
         setError(
-          error instanceof Error
-            ? error.message
-            : "Something went wrong",
+          error instanceof Error ? error.message : "Something went wrong",
         );
       } finally {
         setLoading(false);
@@ -113,24 +100,15 @@ export function FitLogProvider({
 
   // Save saved workouts whenever they change
   useEffect(() => {
-    localStorage.setItem(
-      "fitlog-saved",
-      JSON.stringify(savedWorkouts),
-    );
+    localStorage.setItem("fitlog-saved", JSON.stringify(savedWorkouts));
   }, [savedWorkouts]);
   // Save today's plan whenever it changes
   useEffect(() => {
-    localStorage.setItem(
-      "fitlog-plan",
-      JSON.stringify(planWorkouts),
-    );
+    localStorage.setItem("fitlog-plan", JSON.stringify(planWorkouts));
   }, [planWorkouts]);
   // Save completed workouts whenever they change
   useEffect(() => {
-    localStorage.setItem(
-      "fitlog-completed",
-      JSON.stringify(completedWorkouts),
-    );
+    localStorage.setItem("fitlog-completed", JSON.stringify(completedWorkouts));
   }, [completedWorkouts]);
 
   // SAVED WORKOUT FUNCTIONS
@@ -259,9 +237,7 @@ export function FitLogProvider({
 export function useFitLog() {
   const context = useContext(FitLogContext);
   if (!context) {
-    throw new Error(
-      "useFitLog must be used inside FitLogProvider",
-    );
+    throw new Error("useFitLog must be used inside FitLogProvider");
   }
   return context;
 }
