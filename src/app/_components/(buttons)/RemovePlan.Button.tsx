@@ -24,7 +24,7 @@ export default function RemovePlanButton({ workout }: RemovePlanButtonProps) {
           transition: Bounce,
         });
       }}
-      className="h-6 w-6 flex justify-center items-center text-white sm:text-slate-500 transition hover:text-white"
+      className="h-6 w-6 flex justify-center items-center text-white sm:text-slate-500 transition "
     >
       <X size={18} />
     </button>

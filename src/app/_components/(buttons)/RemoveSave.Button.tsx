@@ -24,7 +24,7 @@ export default function RemoveSaveButton({ workout }: RemoveSaveButtonProps) {
           transition: Bounce,
         });
       }}
-      className="h-6 w-6 flex justify-center items-center text-slate-500 transition hover:text-white"
+      className="h-6 w-6 flex justify-center items-center text-slate-500 transition text-white"
     >
       <X size={18} />
     </button>
